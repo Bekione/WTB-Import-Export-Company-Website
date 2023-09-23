@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root{
+  /* Theme colors */
+    --header-primary-clr: #2C3333;
+    --header-secondary-clr: #A5C9CA;
+
+  /*Width and Height*/
+    --main-header-height: 105px;
+    --top-header-height: 52px;
+    --menu-bar-height: 3px;
+    --sidebar-width: 350px;
+
+    --footer-height: calc(100vh - var(--main-header-height));     
+}
+body{
+  font-family: 'Be Vietnam Pro', sans-serif;
+}
+ 
+.underlined_link{
+  @apply text-white text-[1.2em] font-[100] inline-block relative transition duration-300 ease-out
+}
+
+.hover_underline{
+  @apply absolute bottom-0 left-0 w-full h-px bg-clr-primary transform scale-0 origin-bottom-right transition-transform duration-500 group-hover:scale-100 group-hover:origin-bottom-left
+}
+
+.header_social_icons{
+  @apply text-clr-primary hover:text-white transition duration-200
+}
