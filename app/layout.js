@@ -1,10 +1,9 @@
-import ScrollProgressIndecator from "@components/ScrollProgressIndecator";
-import TopContactBar from "@components/TopContactBar";
-import Nav from "@components/Nav";
-import { beVietnam } from '@utils/font'
+import ScrollProgressIndicator from "@components/ScrollProgressIndecator";
+import Header from "@components/Header";
+import { beVietnam } from "@utils/font";
 import "./globals.css";
 
-export const metadata = {
+const metadata = {
   title: "Wondmneh Tsegaye Import & Export | Embedded Inside",
   description: "Serving customers with the world class it solution.",
   metadataBase: new URL("https://wondeitsln.com"),
@@ -26,14 +25,14 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
   return (
     <html lang="en">
-      <body className={beVietnam.className}>
+      <body
+        className={`${beVietnam.className} leading-6 min-h-[150vh] relative text-clr-primary`}
+      >
         {/* <ScrollProgressIndecator /> */}
-        <header className='header'>
-          <TopContactBar />
-          <Nav />
-        </header>
+        <Header />
         <main>{children}</main>
       </body>
     </html>

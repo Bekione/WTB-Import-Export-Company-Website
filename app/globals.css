@@ -2,31 +2,135 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{
+:root {
   /* Theme colors */
-    --header-primary-clr: #2C3333;
-    --header-secondary-clr: #A5C9CA;
+  --header-primary-clr: #2c3333;
+  --header-secondary-clr: #a5c9ca;
 
   /*Width and Height*/
-    --main-header-height: 105px;
-    --top-header-height: 52px;
-    --menu-bar-height: 3px;
-    --sidebar-width: 350px;
+  --main-header-height: 105px;
+  --top-header-height: 52px;
+  --menu-bar-height: 3px;
+  --sidebar-width: 350px;
 
-    --footer-height: calc(100vh - var(--main-header-height));     
-}
-body{
-  font-family: 'Be Vietnam Pro', sans-serif;
-}
- 
-.underlined_link{
-  @apply text-white text-[1.2em] font-[100] inline-block relative transition duration-300 ease-out
+  --footer-height: calc(100vh - var(--main-header-height));
 }
 
-.hover_underline{
-  @apply absolute bottom-0 left-0 w-full h-px bg-clr-primary transform scale-0 origin-bottom-right transition-transform duration-500 group-hover:scale-100 group-hover:origin-bottom-left
+
+body {
+  font-family: "Be Vietnam Pro", sans-serif;
 }
 
-.header_social_icons{
-  @apply text-clr-primary hover:text-white transition duration-200
+.nav_list::before,
+.nav_list.active::before {
+  --hover-before-bg-clr: rgba(255, 255, 255, 0.6);
+
+  content: "";
+  position: absolute;
+  bottom: -1.8rem;
+  left: 0;
+  width: 100%;
+  height: 2rem;
+  pointer-events: none;
+  background: var(--header-secondary-clr);
+  background: -webkit-radial-gradient(
+    circle at 50% -100%,
+    var(--header-secondary-clr) 10%,
+    var(--hover-before-bg-clr) 65%,
+    transparent 25%
+  );
+  background: -moz-radial-gradient(
+    circle at 50% -100%,
+    var(--header-secondary-clr) 10%,
+    var(--hover-before-bg-clr) 65%,
+    transparent 25%
+  );
+  background: -o-radial-gradient(
+    circle at 50% -100%,
+    var(--header-secondary-clr) 10%,
+    var(--hover-before-bg-clr) 65%,
+    transparent 25%
+  );
+  background: -ms-radial-gradient(
+    circle at 50% -100%,
+    var(--header-secondary-clr) 10%,
+    var(--hover-before-bg-clr) 65%,
+    transparent 25%
+  );
+  background: radial-gradient(
+    circle at 50% -100%,
+    var(--header-secondary-clr) 10%,
+    var(--hover-before-bg-clr) 65%,
+    transparent 25%
+  );
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -o-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-transform-origin: top center;
+  -moz-transform-origin: top center;
+  -o-transform-origin: top center;
+  -ms-transform-origin: top center;
+  transform-origin: top center;
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+.main_header.sticked .nav_list::before,
+.main_header.sticked .nav_list.active::before {
+  --hover-before-bg-clr: #2c333380;
+}
+
+.nav_list:hover::before,
+.nav_list.active::before {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -o-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+.nav_list.active a {
+  color: var(--header-secondary-clr);
+}
+
+.underlined_link {
+  @apply text-white text-[1.2em] font-[100] inline-block relative transition duration-300 ease-out;
+}
+
+.hover_underline {
+  @apply absolute bottom-0 left-0 w-full h-px bg-clr-primary transform scale-0 origin-bottom-right transition-transform duration-500 group-hover:scale-100 group-hover:origin-bottom-left;
+}
+
+.header_social_icons {
+  @apply text-clr-primary hover:text-white transition duration-200;
+}
+
+.main_header {
+  @apply flex justify-between items-center px-[2%] py-4 h-main-header bg-white rounded-br-[8px] transition-all duration-[250] ease-linear shadow-header;
+}
+
+.dotted_bg {
+  @apply before:absolute before:top-0 before:bottom-0 before:-left-12 before:-right-12 before:h-[150] before:overflow-hidden before:bg-gradient-radial from-clr-secondary from-10% to-5% before:bg-[length:1em_1em] before:skew-x-[40deg] before:opacity-[0.15] absolute inset-0 z-[-1] !overflow-hidden;
+}
+
+.nav_list {
+  @apply relative;
+}
+
+.nav_link {
+  @apply font-[1.085em] hover:text-clr-secondary transition duration-200 ease-out;
+}
+
+.dropdown_lists {
+  @apply group-hover:pointer-events-auto group-hover:visible group-hover:max-h-[19.783rem] group-hover:transition-all group-hover:duration-500 absolute top-full left-0 max-h-0 pointer-events-none z-[999] invisible overflow-hidden transition-all duration-300;
+}
+
+.dropdown_list {
+  @apply before:absolute before:top-0 before:left-0 before:w-[.1rem] before:h-0 before:bg-clr-primary hover:before:h-full hover:bg-white hover:bg-opacity-30 relative cursor-pointer border-b border-gray-800 border-opacity-40 transition-all duration-[250] last:border-b-2 last:border-opacity-90;
+}
+.dropdown_link {
+  @apply text-white group-hover/list:text-clr-primary block w-full h-full font-[.9em] pl-4 pr-8 leading-[45px];
 }
