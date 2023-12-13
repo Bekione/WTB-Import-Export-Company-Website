@@ -1,5 +1,5 @@
-import ScrollProgressIndicator from "@components/ScrollProgressIndecator";
-import Header from "@components/Header";
+import ScrollProgressIndicator from "@components/Other/ScrollProgressIndecator";
+import Header from "@components/Header/Header";
 import { beVietnam } from "@utils/font";
 import "./globals.css";
 
@@ -25,7 +25,6 @@ const metadata = {
 };
 
 export default function RootLayout({ children }) {
-
   return (
     <html lang="en">
       <body

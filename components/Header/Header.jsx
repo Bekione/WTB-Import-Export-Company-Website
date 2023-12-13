@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import Nav from "./Nav";
 import TopContactBar from "./TopContactBar";
-import Sidebar from "./Sidebar";
+import Sidebar from "@components/Sidebar";
 import MenuButton from "@utils/MenuButton";
 
 const Header = () => {
